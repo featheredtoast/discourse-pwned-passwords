@@ -22,7 +22,6 @@ after_initialize do
 
       def pwned_password(value)
         hash = Digest::SHA1.hexdigest(value).upcase
-        ::Rails.logger.info hash
         hash_start = hash.slice(0,5)
         hash_rest = hash.slice(5..-1)
         uri = URI("https://api.pwnedpasswords.com/range/#{hash_start}")
@@ -32,7 +31,6 @@ after_initialize do
           kv = raw_kv.split ":"
           hibp_hash[kv[0]] = kv[1]
         end
-        ::Rails.logger.info hibp_hash[hash_rest]
         return !!hibp_hash[hash_rest]
       end
     end
