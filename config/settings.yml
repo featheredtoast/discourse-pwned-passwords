@@ -1,4 +1,4 @@
 plugins:
-  hibp_validation_enabled:
+  pwned_validation_enabled:
     default: true
     client: false

@@ -1,6 +1,6 @@
-# Discourse Have I Been Pwned password validator
+# Discourse Pwned Password validator
 
-Validates passwords through Troy Hunt's [Have I Been Pwned API](https://www.troyhunt.com/i-wanna-go-fast-why-searching-through-500m-pwned-passwords-is-so-quick/)
+Validates passwords through Troy Hunt's [Pwned Password API](https://www.troyhunt.com/i-wanna-go-fast-why-searching-through-500m-pwned-passwords-is-so-quick/)
 
 # Install
 
