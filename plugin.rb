@@ -36,8 +36,8 @@ after_initialize do
     end
 
     class ::User
-      validate :pwned_password_validator
-      def pwned_password_validator
+      validate :pwned_passwords_validator
+      def pwned_passwords_validator
         DiscoursePwnedPasswords::PasswordValidator.new(attributes: :password).validate_each(self, :password, @raw_password)
       end
     end
