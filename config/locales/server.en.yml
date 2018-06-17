@@ -7,4 +7,4 @@ en:
         user:
           attributes:
             password:
-              hibp_common: "is in a known password breach on Have I Been Pwned. Please use a more secure password."
+              hibp_common: "is a known password on Have I Been Pwned. Please use a more secure password."
