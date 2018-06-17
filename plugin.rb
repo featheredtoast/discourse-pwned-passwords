@@ -21,8 +21,7 @@ after_initialize do
       end
 
       def pwned_password(value)
-        ::Rails.logger.info "pwned password??"
-        hash = Digest::SHA1.hexdigest(value)
+        hash = Digest::SHA1.hexdigest(value).upcase
         ::Rails.logger.info hash
         hash_start = hash.slice(0,5)
         hash_rest = hash.slice(5..-1)
@@ -34,7 +33,7 @@ after_initialize do
           hibp_hash[kv[0]] = kv[1]
         end
         ::Rails.logger.info hibp_hash[hash_rest]
-        return hibp_hash[hash_rest]
+        return !!hibp_hash[hash_rest]
       end
     end
 
