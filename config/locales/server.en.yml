@@ -1,3 +1,10 @@
 en:
   site_settings:
     hibp_validation_enabled: "Enable password validation against the Have I Been Pwned API"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              hibp_common: "is in a known password breach on Have I Been Pwned. Please use a more secure password."
