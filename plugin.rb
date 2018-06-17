@@ -22,23 +22,27 @@ after_initialize do
 
       def pwned_password(value)
         ::Rails.logger.info "pwned password??"
-
         hash = Digest::SHA1.hexdigest(value)
         ::Rails.logger.info hash
         hash_start = hash.slice(0,5)
-        ::Rails.logger.info hash_start
+        hash_rest = hash.slice(5..-1)
         uri = URI("https://api.pwnedpasswords.com/range/#{hash_start}")
         result = Net::HTTP.get(uri)
-        ::Rails.logger.info result
-        return false
+        hibp_hash = {}
+        result.split.each do |raw_kv|
+          kv = raw_kv.split ":"
+          hibp_hash[kv[0]] = kv[1]
+        end
+        ::Rails.logger.info hibp_hash[hash_rest]
+        return hibp_hash[hash_rest]
       end
     end
-  end
 
-  class User
-    validate :hibp_password_validator
-    def hibp_password_validator
-      DiscourseHibp::HibpPasswordValidator.new(attributes: :password).validate_each(self, :password, @raw_password)
+    class ::User
+      validate :hibp_password_validator
+      def hibp_password_validator
+        DiscourseHibp::HibpPasswordValidator.new(attributes: :password).validate_each(self, :password, @raw_password)
+      end
     end
   end
 end
