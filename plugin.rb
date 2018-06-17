@@ -11,7 +11,7 @@ enabled_site_setting :pwned_validation_enabled
 after_initialize do
   module ::DiscoursePwnedPasswords
 
-    class PasswordValidator < activemodel::eachvalidator
+    class PasswordValidator < ActiveModel::EachValidator
 
       def validate_each(record, attribute, value)
         return unless record.password_validation_required?
