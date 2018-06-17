@@ -16,7 +16,7 @@ after_initialize do
       def validate_each(record, attribute, value)
         return unless record.password_validation_required?
         if pwned_password(value)
-          record.errors.add(attribute, :hibp_common)
+          record.errors.add(attribute, :common)
         end
       end
 
