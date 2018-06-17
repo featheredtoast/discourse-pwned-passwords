@@ -1,0 +1,4 @@
+plugins:
+  hibp_validation_enabled:
+    default: true
+    client: false

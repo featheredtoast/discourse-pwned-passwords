@@ -1,0 +1,3 @@
+en:
+  site_settings:
+    hibp_validation_enabled: "Enable password validation against the Have I Been Pwned API"
