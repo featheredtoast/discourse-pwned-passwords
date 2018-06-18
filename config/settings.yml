@@ -2,3 +2,6 @@ plugins:
   pwned_validation_enabled:
     default: true
     client: false
+  pwned_validation_threshold:
+    default: 1
+    client: false

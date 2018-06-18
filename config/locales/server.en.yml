@@ -1,10 +1,11 @@
 en:
   site_settings:
     pwned_validation_enabled: "Enable password validation against the Pwned Passwords API"
+    pwned_validation_threshold: "The number of occurrences a password appears before it disallows the password from being chosen"
   activerecord:
     errors:
       models:
         user:
           attributes:
             password:
-              pwned_common: "is a known password on Pwned Passwords. Please use a more secure password."
+              pwned_common: "has appeared previously in a data breach. Please use a more secure password."

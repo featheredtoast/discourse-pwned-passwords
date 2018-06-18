@@ -29,9 +29,9 @@ after_initialize do
         pwned_hash = {}
         result.split.each do |raw_kv|
           kv = raw_kv.split ":"
-          pwned_hash[kv[0]] = kv[1]
+          pwned_hash[kv[0]] = kv[1].to_i
         end
-        return !!pwned_hash[hash_rest]
+        return !!pwned_hash[hash_rest] && pwned_hash[hash_rest] >= SiteSetting.pwned_validation_threshold
       end
     end
 
