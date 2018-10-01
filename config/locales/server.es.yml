@@ -1,0 +1,11 @@
+es:
+  site_settings:
+    pwned_validation_enabled: "Activar validación de contraseñas en la API Pwned Passwords"
+    pwned_validation_threshold: "Número de veces que una contraseña debe aparecer antes de que no deje elegirla"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              pwned_common: "ha aparecido anteriormente en una filtración de datos. Por favor, usa una contraseña más segura."
